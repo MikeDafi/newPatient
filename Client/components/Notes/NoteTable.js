@@ -20,12 +20,12 @@ const NoteTable = (props) => {
                         </a>
                     </div>                
                 </td>
-                <td className="align-middle">{note.title}</td>
+                <a href="#"><td className="align-middle">{note.title}</td></a>
 
                 {note.title=== "Eric Robinsinstinson" ? (
                     <td className="align-middle text-success">
                     <span className="d-inline-block text-truncate" style={{maxWidth: '200px'}}>
-                    <a href="#" className="align-middle text-danger">{note.content}</a>
+                    <div className="align-middle text-danger">{note.content}</div>
                     </span>                
                 </td>
                 ) : null}
@@ -33,7 +33,7 @@ const NoteTable = (props) => {
 {note.title!== "Eric Robinsinstinson" ? (
                     <td className="align-middle text-success">
                     <span className="d-inline-block text-truncate" style={{maxWidth: '200px'}}>
-                    <a href="#" className="align-middle text-success">{note.content}</a>
+                    <div className="align-middle text-success">{note.content}</div>
                     </span>                
                 </td>
                 ) : null}
