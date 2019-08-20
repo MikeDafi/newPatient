@@ -63,7 +63,7 @@ class AddNoteForm extends Component {
     
 
     validateTitle(title) {
-        const message = 'Title is required';
+        const message = 'Name is required';
 
         if (title === '') {
             this.addValidationError(message);
@@ -153,7 +153,7 @@ class AddNoteForm extends Component {
                 {validationErrorSummary}
                 <form onSubmit={this.onSave} className="mt-2">
                     <div className="form-group">
-                        <label htmlFor="title">Title</label>
+                        <label htmlFor="title">Name</label>
                         <input type="text" className="form-control" name="title" autoFocus onChange={this.onTitleChange} />
                     </div>
                     <div className="form-group">

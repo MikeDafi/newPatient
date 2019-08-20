@@ -56,7 +56,7 @@ class NoteManager extends Component {
             throw Error('Cannot remove note. Invalid note id specified');
         }
         
-        const confirmation = confirm('Are you sure you wish to remove note?');
+        const confirmation = confirm('Are you sure you wish to remove patient?');
 
         if (confirmation) {
             NoteService

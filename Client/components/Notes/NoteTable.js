@@ -12,20 +12,36 @@ const NoteTable = (props) => {
             <tr key={note.id.toString()} className={classes}>
                 <td className="align-middle" style={{width: '80px'}}>
                     <div className="d-flex flex-row">
-                        <a data-toggle="tooltip" data-placement="top" title="Edit Note" className="p-2" onClick={() => props.onOpenEditNoteModal(note.id)}>
-                            <i className="fa fa-pencil fa-lg text-primary"></i>
+                        <a data-toggle="tooltip" data-placement="top" title="Edit Patient" className="p-2" onClick={() => props.onOpenEditNoteModal(note.id)}>
+                            <i className="fa fa-edit fa-lg text-primary"></i>
                         </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Delete Note" className="p-2" onClick={() => props.onDeleteNote(note.id)}>
-                            <i className="fa fa-trash fa-lg text-danger"></i>
+                        <a data-toggle="tooltip" data-placement="top" title="Delete Patient" className="p-2" onClick={() => props.onDeleteNote(note.id)}>
+                            <i className="fa fa-times-circle-o fa-lg text-danger"></i>
                         </a>
                     </div>                
                 </td>
                 <td className="align-middle">{note.title}</td>
-                <td className="align-middle">
+
+                {note.title=== "Eric Robinsinstinson" ? (
+                    <td className="align-middle text-success">
                     <span className="d-inline-block text-truncate" style={{maxWidth: '200px'}}>
-                        {note.content}
+                    <a href="#" className="align-middle text-danger">{note.content}</a>
                     </span>                
                 </td>
+                ) : null}
+
+{note.title!== "Eric Robinsinstinson" ? (
+                    <td className="align-middle text-success">
+                    <span className="d-inline-block text-truncate" style={{maxWidth: '200px'}}>
+                    <a href="#" className="align-middle text-success">{note.content}</a>
+                    </span>                
+                </td>
+                ) : null}
+                {/* <td className="align-middle text-success">
+                    <span className="d-inline-block text-truncate" style={{maxWidth: '200px'}}>
+                    <a href="#" className="align-middle text-success">{note.content}</a>
+                    </span>                
+                </td> */}
                 <td className="align-middle">{`${new Date(note.updatedDate).toISOString().slice(0, 10)} ${new Date(note.updatedDate).toISOString().slice(11, 16)}`}</td>
             </tr>
         );
@@ -37,8 +53,8 @@ const NoteTable = (props) => {
                 <thead>
                     <tr>
                         <th></th>
-                        <th className="align-middle text-center">Title</th>
-                        <th className="align-middle text-center">Content</th>
+                        <th className="align-middle text-center">Name</th>
+                        <th className="align-middle text-center">Forms</th>
                         <th className="align-middle text-center">Updated Date</th>
                     </tr>
                 </thead>

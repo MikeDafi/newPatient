@@ -69,7 +69,7 @@ class EditNoteForm extends Component {
     
 
     validateTitle(title) {
-        const message = 'Title is required';
+        const message = 'Name is required';
 
         if (title === '') {
             this.addValidationError(message);
@@ -151,7 +151,7 @@ class EditNoteForm extends Component {
         return (
             <div className="card card-body">
                 <div className="mb-2">        
-                    <span className="h4 my-auto"><i className="fa fa-file-text-o fa-lg"></i> Edit Note</span>
+                    <span className="h4 my-auto"><i className="fa fa-file-text-o fa-lg"></i> Edit Patient</span>
                     <a className="float-right ml-auto" onClick={this.props.onCloseModal}>
                         <i className="fa fa-remove mr-2 fa-2x text-danger"></i>
                     </a>
@@ -159,7 +159,7 @@ class EditNoteForm extends Component {
                 {validationErrorSummary}
                 <form onSubmit={this.onSave} className="mt-2">
                     <div className="form-group">
-                        <label htmlFor="title">Title</label>
+                        <label htmlFor="title">Name</label>
                         <input type="text" className="form-control" name="title" autoFocus onChange={this.onTitleChange} value={this.state.title}/>
                     </div>
                     <div className="form-group">
