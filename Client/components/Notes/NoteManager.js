@@ -235,8 +235,7 @@ class NoteManager extends Component {
                     <li class="breadcrumb-item active" aria-current="page">Patients</li>
                     </ol>
                 </nav>
-
-                
+                <hr size="30"></hr>
                 <NoteTable notes={this.state.notes} onDeleteNote={this.handleOnDeleteNote} onOpenEditNoteModal={this.handleOpenEditNoteModal} />
             </div>
         );

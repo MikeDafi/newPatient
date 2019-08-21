@@ -61,6 +61,7 @@ const NoteTable = (props) => {
                     <a class="dropdown-item" href="#">Time of Creation</a>
                     </div>
                 </div>
+                <p class="h6" style={{margin:'10px'}}><small><b>93823</b>  Patients</small></p>
             </div>
             <table className="table table-bordered table-striped table-hover">
                 <thead>
