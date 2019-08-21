@@ -49,20 +49,23 @@ const NoteTable = (props) => {
 
     return (
         <div>
-            <div class="btn-group" role="group" aria-label="Button group with nested dropdown" >
+            <div className="btn-group" role="group" aria-label="Button group with nested dropdown" >
 
-                <div class="btn-group" role="group" style={{textAlign:'right', marginBottom:'15px'}}>
-                    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div className="btn-group" role="group" style={{textAlign:'right', marginBottom:'15px'}}>
+                    <button id="btnGroupDrop1" type="button" className="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Filter Criteria
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    <a class="dropdown-item" href="#">Alphabetical</a>
-                    <a class="dropdown-item" href="#">Forms Incompleted</a>
-                    <a class="dropdown-item" href="#">Time of Creation</a>
+                    <div className="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <a className="dropdown-item" href="#">Alphabetical</a>
+                        <a className="dropdown-item" href="#">Forms Incompleted</a>
+                        <a className="dropdown-item" href="#">Time of Creation</a>
                     </div>
                 </div>
-                <p class="h6" style={{margin:'10px'}}><small><b>93823</b>  Patients</small></p>
+                
+                <p className="h6" style={{margin:'10px'}}><small><b>93823</b>  Patients</small></p>
+
             </div>
+
             <table className="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>

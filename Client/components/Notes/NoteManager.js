@@ -210,13 +210,17 @@ class NoteManager extends Component {
 
     render() {
         return (
-            <div>      
-                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>Holy guacamole!</strong> You should validate your email address.
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>                    
+            <div>     
+
+
+                <div className="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Holy guacamole!</strong> You should validate your email address.
+                    <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>     
+
+
                 <Modal isOpen={this.state.isAddNoteModalOpen} onRequestClose={this.handleOnCloseAddNoteModal}>
                     <AddNoteForm onSaveNote={this.handleOnAddNote} onCloseModal={this.handleOnCloseAddNoteModal} />
                 </Modal>
@@ -225,18 +229,23 @@ class NoteManager extends Component {
                     <EditNoteForm onSaveNote={this.handleOnEditNote} onCloseModal={this.handleOnCloseEditNoteModal} note={this.state.selectedNote} />
                 </Modal>
                 
+
                 <div className="mb-3">
                     <ControlPanel openAddNoteModal={this.handleOpenAddNoteModal} onFindNotes={this.handleOnFindNotes} />
                 </div>
                 
+                
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Berkshire National Clinic</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Patients</li>
+                    <ol className="breadcrumb">
+                        <li className="breadcrumb-item"><a href="#">Berkshire National Clinic</a></li>
+                        <li className="breadcrumb-item active" aria-current="page">Patients</li>
                     </ol>
                 </nav>
+
                 <hr size="30"></hr>
                 <NoteTable notes={this.state.notes} onDeleteNote={this.handleOnDeleteNote} onOpenEditNoteModal={this.handleOpenEditNoteModal} />
+
+
             </div>
         );
     }
