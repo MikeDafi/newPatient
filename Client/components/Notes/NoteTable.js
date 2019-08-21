@@ -61,7 +61,7 @@ const NoteTable = (props) => {
                         <a className="dropdown-item" href="#">Time of Creation</a>
                     </div>
                 </div>
-                
+
                 <p className="h6" style={{margin:'10px'}}><small><b>93823</b>  Patients</small></p>
 
             </div>
@@ -79,6 +79,8 @@ const NoteTable = (props) => {
                     {noteRows}
                 </tbody>
             </table>
+            <i className="fa fa-circle-o-notch fa-spin fa-3x fa-fw" style={{ marginLeft:'50%'}}></i>
+            <span className="sr-only">Loading...</span>
         </div>
     );
 };

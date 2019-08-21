@@ -166,35 +166,35 @@ class EditNoteForm extends Component {
                         <label htmlFor="content">Content</label>
                         <textarea className="form-control" name="content" rows="3" onChange={this.onContentChange} value={this.state.content}></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="example-tel-input" htmlFor="phone">Telephone</label>
-                            <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input"/>
+                    <div className="form-group">
+                        <label htmlFor="example-tel-input">Telephone</label>
+                        <input className="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input"/>
                     </div>
-                    <div class="form-group">
-                        <label for="example-email-input" >Email</label>
-                        <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input"/>
+                    <div className="form-group">
+                        <label htmlFor="example-email-input" >Email</label>
+                        <input className="form-control" type="email" value="bootstrap@example.com" id="example-email-input"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="content">Forms</label>
-                        <select class="form-control">
+                        <select className="form-control">
                             <option>Default select</option>
                         </select>
-                            <button className="btn btn-primary btn-sm btn-block mt-2 mt-sm-0"
-                                onClick={this.props.onCloseModal}
-                                type="button">
-                                <i className="fa fa-plus mr-2"></i>Add Form
-                            </button>
-                            <select class="custom-select" multiple style={{width:"100%", marginTop:"10px"}}>
-                                <option >New Patient Form</option>
-                                <option value="1">Health Insurance Information</option>
-                                <option value="2">Psychological Quizlet</option>
-                                <option value="3">New Application Waivor</option>
-                                </select>
-                                <button className="btn btn-danger btn-sm btn-block mt-2 mt-sm-0"
-                                onClick={this.props.onCloseModal}
-                                type="button">
-                                <i className="fa fa-remove mr-2"></i>Remove Form
-                                </button>
+                        <button className="btn btn-primary btn-sm btn-block mt-2 mt-sm-0"
+                            onClick={this.props.onCloseModal}
+                            type="button">
+                            <i className="fa fa-plus mr-2"></i>Add Form
+                        </button>
+                        <select className="custom-select" multiple style={{width:'100%', marginTop:'10px'}}>
+                            <option >New Patient Form</option>
+                            <option value="1">Health Insurance Information</option>
+                            <option value="2">Psychological Quizlet</option>
+                            <option value="3">New Application Waivor</option>
+                        </select>
+                        <button className="btn btn-danger btn-sm btn-block mt-2 mt-sm-0"
+                            onClick={this.props.onCloseModal}
+                            type="button">
+                            <i className="fa fa-remove mr-2"></i>Remove Form
+                        </button>
                     </div>
                     <div className="form-group">
                         <label htmlFor="tags">Tags</label>
