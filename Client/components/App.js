@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import NoteManager from './Notes/NoteManager';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 export default class App extends Component {
 
-    constructor(){
+    constructor() {
         super();
 
         this.state = {
@@ -13,9 +14,18 @@ export default class App extends Component {
         };
     }
 
-    render() {
+    templates(){
         return (
             <div>
+               HI
+            </div>
+        );
+    }
+
+    initialPage(){
+        return (
+            <div>
+                
                 <Header />
                 <div className="container mt-5">
                     <NoteManager />
@@ -23,4 +33,30 @@ export default class App extends Component {
             </div>
         );
     }
+
+    render() {
+
+        const initialPage = this.initialPage.bind(this);
+        const templates = this.templates.bind(this);
+
+        return (
+
+            <BrowserRouter>
+                <Route
+                    exact
+                    path='/'
+                    component={initialPage}
+                />
+                <Route
+                    exact
+                    path='/templates'
+                    component={templates}
+                />
+            </BrowserRouter>
+
+
+        );
+    }
+
+
 }
