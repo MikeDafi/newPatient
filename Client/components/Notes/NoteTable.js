@@ -20,22 +20,22 @@ const NoteTable = (props) => {
                         </a>
                     </div>                
                 </td>
-                <a href="#"><td className="align-middle">{note.title}</td></a>
+                <td className="align-middle"><a href="#">{note.title}</a></td>
 
-                {note.title=== "Eric Robinsinstinson" ? (
+                {note.title=== 'Eric Robinsinstinson' ? (
                     <td className="align-middle text-success">
-                    <span className="d-inline-block text-truncate" style={{maxWidth: '200px'}}>
-                    <div className="align-middle text-danger">{note.content}</div>
-                    </span>                
-                </td>
+                        <span className="d-inline-block text-truncate" style={{maxWidth: '200px'}}>
+                            <p className="align-middle text-danger">{note.content}</p>
+                        </span>                
+                    </td>
                 ) : null}
 
-{note.title!== "Eric Robinsinstinson" ? (
+                {note.title!== 'Eric Robinsinstinson' ? (
                     <td className="align-middle text-success">
-                    <span className="d-inline-block text-truncate" style={{maxWidth: '200px'}}>
-                    <div className="align-middle text-success">{note.content}</div>
-                    </span>                
-                </td>
+                        <span className="d-inline-block text-truncate" style={{maxWidth: '200px'}}>
+                            <p className="align-middle text-success">{note.content}</p>
+                        </span>                
+                    </td>
                 ) : null}
                 {/* <td className="align-middle text-success">
                     <span className="d-inline-block text-truncate" style={{maxWidth: '200px'}}>
@@ -49,6 +49,19 @@ const NoteTable = (props) => {
 
     return (
         <div>
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown" >
+
+                <div class="btn-group" role="group" style={{textAlign:'right', marginBottom:'15px'}}>
+                    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filter Criteria
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <a class="dropdown-item" href="#">Alphabetical</a>
+                    <a class="dropdown-item" href="#">Forms Incompleted</a>
+                    <a class="dropdown-item" href="#">Time of Creation</a>
+                    </div>
+                </div>
+            </div>
             <table className="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>

@@ -27,7 +27,7 @@ class ControlPanel extends Component {
                             <i className="fa fa-plus"></i>
                         </button>
                     </span>
-                    <input type="text" className="form-control" placeholder="Search for note by name ..." value={this.state.title} onChange={this.onSearchTitleChanged} />
+                    <input type="text" className="form-control" placeholder="Search for patient by name ..." value={this.state.title} onChange={this.onSearchTitleChanged} />
                     <span className="input-group-btn">
                         <button className="btn btn-primary" type="button" onClick={() => this.props.onFindNotes(this.state.title)} >
                             <i className="fa fa-search"></i>
