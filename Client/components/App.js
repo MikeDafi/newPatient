@@ -14,19 +14,44 @@ export default class App extends Component {
         };
     }
 
-    templates(){
+    templates() {
         return (
             <div>
-               HI
+                <Header
+                    page="templates"
+                    userName="Berkshire National Clinic"
+                />
+                <div className="container mt-5">
+                    TEMPLATES
+                </div>
+
             </div>
         );
     }
 
-    initialPage(){
+    account() {
         return (
             <div>
-                
-                <Header />
+                <Header
+                    page="account"
+                    userName="Berkshire National Clinic"
+                />
+                <div className="container mt-5">
+                    ACCOUNT
+                </div>
+
+            </div>
+        );
+    }
+
+    initialPage() {
+        return (
+            <div>
+
+                <Header
+                    page="patients"
+                    userName="Berkshire National Clinic"
+                />
                 <div className="container mt-5">
                     <NoteManager />
                 </div>
@@ -38,6 +63,7 @@ export default class App extends Component {
 
         const initialPage = this.initialPage.bind(this);
         const templates = this.templates.bind(this);
+        const account = this.account.bind(this);
 
         return (
 
@@ -51,6 +77,12 @@ export default class App extends Component {
                     exact
                     path='/templates'
                     component={templates}
+                />
+
+                <Route
+                    exact
+                    path='/account'
+                    component={account}
                 />
             </BrowserRouter>
 

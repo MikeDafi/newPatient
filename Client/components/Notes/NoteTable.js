@@ -7,10 +7,10 @@ const NoteTable = (props) => {
     const noteRows = notes.map(note => {
 
         let classes = `small ${!!note.isNew ? 'table-success' : ''}`;
-        
+
         return (
             <tr key={note.id.toString()} className={classes}>
-                <td className="align-middle" style={{width: '80px'}}>
+                <td className="align-middle" style={{ width: '80px' }}>
                     <div className="d-flex flex-row">
                         <a data-toggle="tooltip" data-placement="top" title="Edit Patient" className="p-2" onClick={() => props.onOpenEditNoteModal(note.id)}>
                             <i className="fa fa-edit fa-lg text-primary"></i>
@@ -18,23 +18,23 @@ const NoteTable = (props) => {
                         <a data-toggle="tooltip" data-placement="top" title="Delete Patient" className="p-2" onClick={() => props.onDeleteNote(note.id)}>
                             <i className="fa fa-times-circle-o fa-lg text-danger"></i>
                         </a>
-                    </div>                
+                    </div>
                 </td>
                 <td className="align-middle"><a href="#">{note.title}</a></td>
 
-                {note.title=== 'Eric Robinsinstinson' ? (
+                {note.title === 'Eric Robinsinstinson' ? (
                     <td className="align-middle text-success">
-                        <span className="d-inline-block text-truncate" style={{maxWidth: '200px'}}>
+                        <span className="d-inline-block text-truncate" style={{ maxWidth: '200px' }}>
                             <p className="align-middle text-danger">{note.content}</p>
-                        </span>                
+                        </span>
                     </td>
                 ) : null}
 
-                {note.title!== 'Eric Robinsinstinson' ? (
+                {note.title !== 'Eric Robinsinstinson' ? (
                     <td className="align-middle text-success">
-                        <span className="d-inline-block text-truncate" style={{maxWidth: '200px'}}>
+                        <span className="d-inline-block text-truncate" style={{ maxWidth: '200px' }}>
                             <p className="align-middle text-success">{note.content}</p>
-                        </span>                
+                        </span>
                     </td>
                 ) : null}
                 {/* <td className="align-middle text-success">
@@ -51,9 +51,9 @@ const NoteTable = (props) => {
         <div>
             <div className="btn-group" role="group" aria-label="Button group with nested dropdown" >
 
-                <div className="btn-group" role="group" style={{textAlign:'right', marginBottom:'15px'}}>
+                <div className="btn-group" role="group" style={{ textAlign: 'right', marginBottom: '15px' }}>
                     <button id="btnGroupDrop1" type="button" className="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Filter Criteria
+                        Filter Criteria
                     </button>
                     <div className="dropdown-menu" aria-labelledby="btnGroupDrop1">
                         <a className="dropdown-item" href="#">Alphabetical</a>
@@ -62,7 +62,7 @@ const NoteTable = (props) => {
                     </div>
                 </div>
 
-                <p className="h6" style={{margin:'10px'}}><small><b>93823</b>  Patients</small></p>
+                <p className="h6" style={{ margin: '10px' }}><small><b>93823</b>  Patients</small></p>
 
             </div>
 
@@ -79,7 +79,7 @@ const NoteTable = (props) => {
                     {noteRows}
                 </tbody>
             </table>
-            <i className="fa fa-circle-o-notch fa-spin fa-3x fa-fw" style={{ marginLeft:'50%'}}></i>
+            <i className="fa fa-circle-o-notch fa-spin fa-3x fa-fw" style={{ marginLeft: '50%' }}></i>
             <span className="sr-only">Loading...</span>
         </div>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = () => (
+const Header = (props) => (
     <nav className="header navbar navbar-expand-sm navbar-dark bg-react-black" style={{ width: '100%' }}>
         <div className="container">
             <div className="navbar-brand" style={{ width: '100%' }}>
@@ -9,24 +9,40 @@ const Header = () => (
                 <span className="align-middle text-react-">New Patient</span>
                 <a style={{ marginLeft: '100%', position: 'relative', margin: '40px', padding: '20px' }}>
 
+                    {(props.page === 'patients') ? (
+                        <Link to={'/templates'}>
 
+                            <button type="button" className='btn btn-info' >
+                                Manage Templates <span className="badge badge-light">3</span>
+                            </button>
 
-                    <Link to={'/templates'}>
+                        </Link>
+                    ) : (
+                            <Link to={'/'}>
 
-                        <button type="button" className='btn btn-info' >
-                            Manage Forms <span className="badge badge-light">3</span>
+                                <button type="button" className='btn btn-success' >
+                                    Manage Patients
                         </button>
 
-                    </Link>
+                            </Link>
+                        )}
+
+
 
 
 
                 </a>
 
-                <button type="button" className='btn btn-dark' style={{ right: '0px', position: 'absolute', margin: '21px' }}>
-                    Berkshire National Clinic <span className="badge badge-danger">0</span>
-                </button>
+                <Link to={'/account'}>
+
+                    <button type="button" className='btn btn-dark' style={{ right: '0px', position: 'absolute', margin: '21px' }}>
+                        {props.userName} <span className="badge badge-danger">0</span>
+                    </button>
+
+                </Link>
+
             </div>
+
         </div>
     </nav>
 
