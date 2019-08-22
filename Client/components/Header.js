@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+
 
 const Header = (props) => (
+
+
     <nav className="header navbar navbar-expand-sm navbar-dark bg-react-black" style={{ width: '100%' }}>
         <div className="container">
             <div className="navbar-brand" style={{ width: '100%' }}>

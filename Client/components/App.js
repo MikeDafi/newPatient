@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import NoteManager from './Notes/NoteManager';
+import TemplateManager from './Templates/TemplateManager';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 export default class App extends Component {
@@ -17,14 +18,14 @@ export default class App extends Component {
     templates() {
         return (
             <div>
+
                 <Header
-                    page="templates"
+                    page="account"
                     userName="Berkshire National Clinic"
                 />
                 <div className="container mt-5">
-                    TEMPLATES
+                    <TemplateManager />
                 </div>
-
             </div>
         );
     }
@@ -60,6 +61,7 @@ export default class App extends Component {
     }
 
     patient(props) {
+        // alert("hi");
         // const { name } = props.name
         return (
             <div>
@@ -104,8 +106,8 @@ export default class App extends Component {
                 />
 
                 <Route
-                    exact
-                    path='/:name'
+                    
+                    path="/p/:name"
                     component={patient}
                 />
             </Router>
