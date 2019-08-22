@@ -27,7 +27,7 @@ module.exports = {
             },
             {
                 test: /\.s?css$/,
-                use: [ 'style-loader', 'css-loader', 'sass-loader' ],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
                 exclude: /node_modules/
             },
             {
@@ -38,7 +38,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebPackPlugin([ 'public' ], { root: path.resolve(__dirname)}),
+        new CleanWebPackPlugin(['public'], { root: path.resolve(__dirname) }),
         new HtmlWebPackPlugin({
             template: './Client/index.html',
             favicon: './Client/favicon.ico',
@@ -47,9 +47,10 @@ module.exports = {
     ],
     devtool: 'cheap-module-eval-source-map',
     devServer: {
+        inline: false,
         contentBase: path.resolve(__dirname, 'public'),
         compress: true,
         port: 9000,
-	historyApiFullback: true,
+        historyApiFallback: true,
     }
 };

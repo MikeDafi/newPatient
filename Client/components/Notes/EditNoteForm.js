@@ -22,7 +22,7 @@ class EditNoteForm extends Component {
         this.onSave = this.onSave.bind(this);
     }
 
-    
+
     onTitleChange(event) {
         const title = event.target.value;
 
@@ -36,7 +36,7 @@ class EditNoteForm extends Component {
         const content = event.target.value;
 
         this.validateContent(content);
-        
+
         this.setState({ content: content });
     }
 
@@ -44,18 +44,18 @@ class EditNoteForm extends Component {
     onTagsChange(event) {
         const tags = event.target.value;
 
-        if (this.validateTags(tags)) {            
-            this.setState({ tags: tags.split(',')});
-        }        
+        if (this.validateTags(tags)) {
+            this.setState({ tags: tags.split(',') });
+        }
     }
 
-    
+
     onSave(event) {
         event.preventDefault();
 
         if (this.state.validationErrors && this.state.validationErrors.length === 0) {
             const { title, content } = this.state;
-            
+
             if (this.validateTitle(title) && this.validateContent(content)) {
                 this.props.onSaveNote({
                     id: this.state.id,
@@ -66,7 +66,7 @@ class EditNoteForm extends Component {
             }
         }
     }
-    
+
 
     validateTitle(title) {
         const message = 'Name is required';
@@ -96,11 +96,11 @@ class EditNoteForm extends Component {
 
     validateTags(tags) {
         const message = 'Tags must be a comma separated list';
-        
+
         if (tags !== '') {
             var regex = new RegExp(/^([\w]+[\s]*[,]?[\s]*)+$/);
 
-            if (!regex.test(tags)) {                
+            if (!regex.test(tags)) {
                 this.addValidationError(message);
                 return false;
             } else {
@@ -112,34 +112,34 @@ class EditNoteForm extends Component {
         }
     }
 
-    
-    addValidationError(message) {        
+
+    addValidationError(message) {
         this.setState((previousState) => {
             const validationErrors = [...previousState.validationErrors];
-            validationErrors.push({message});
+            validationErrors.push({ message });
             return {
                 validationErrors: validationErrors
             };
-        });      
+        });
     }
 
-    
+
     removeValidationError(message) {
         this.setState((previousState) => {
             const validationErrors = previousState
                 .validationErrors
                 .filter(error => error.message !== message);
-            
+
             return {
                 validationErrors: validationErrors
             };
-        });      
+        });
     }
 
-    
+
     render() {
 
-        const validationErrorSummary = this.state.validationErrors.map(error => 
+        const validationErrorSummary = this.state.validationErrors.map(error =>
             <div key={uuidv1()} className="alert alert-danger alert-dismissible fade show">
                 {error.message}
                 <button type="button" className="close" data-dismiss="alert">
@@ -150,7 +150,7 @@ class EditNoteForm extends Component {
 
         return (
             <div className="card card-body">
-                <div className="mb-2">        
+                <div className="mb-2">
                     <span className="h4 my-auto"><i className="fa fa-file-text-o fa-lg"></i> Edit Patient</span>
                     <a className="float-right ml-auto" onClick={this.props.onCloseModal}>
                         <i className="fa fa-remove mr-2 fa-2x text-danger"></i>
@@ -160,7 +160,7 @@ class EditNoteForm extends Component {
                 <form onSubmit={this.onSave} className="mt-2">
                     <div className="form-group">
                         <label htmlFor="title">Name</label>
-                        <input type="text" className="form-control" name="title" autoFocus onChange={this.onTitleChange} value={this.state.title}/>
+                        <input type="text" className="form-control" name="title" autoFocus onChange={this.onTitleChange} value={this.state.title} />
                     </div>
                     <div className="form-group">
                         <label htmlFor="content">Content</label>
@@ -168,11 +168,11 @@ class EditNoteForm extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="example-tel-input">Telephone</label>
-                        <input className="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input"/>
+                        <input className="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="example-email-input" >Email</label>
-                        <input className="form-control" type="email" value="bootstrap@example.com" id="example-email-input"/>
+                        <input className="form-control" type="email" value="bootstrap@example.com" id="example-email-input" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="content">Forms</label>
@@ -184,7 +184,7 @@ class EditNoteForm extends Component {
                             type="button">
                             <i className="fa fa-plus mr-2"></i>Add Form
                         </button>
-                        <select className="custom-select" multiple style={{width:'100%', marginTop:'10px'}}>
+                        <select className="custom-select" multiple style={{ width: '100%', marginTop: '10px' }}>
                             <option >New Patient Form</option>
                             <option value="1">Health Insurance Information</option>
                             <option value="2">Psychological Quizlet</option>

@@ -9,7 +9,7 @@ const NoteService = require('../../services/note-service');
 class NoteManager extends Component {
     constructor(props) {
         super(props);
-        
+
         this.state = {
             notes: [],
             selectedNote: null,
@@ -17,12 +17,12 @@ class NoteManager extends Component {
             isEditNoteModalOpen: false
         };
 
-        
+
         this.handleOnAddNote = this.handleOnAddNote.bind(this);
         this.handleOnEditNote = this.handleOnEditNote.bind(this);
         this.handleOnDeleteNote = this.handleOnDeleteNote.bind(this);
         this.handleOnFindNotes = this.handleOnFindNotes.bind(this);
-        
+
         this.handleOpenAddNoteModal = this.handleOpenAddNoteModal.bind(this);
         this.handleOnCloseAddNoteModal = this.handleOnCloseAddNoteModal.bind(this);
 
@@ -40,7 +40,7 @@ class NoteManager extends Component {
         NoteService
             .listNotes()
             .then(notes => {
-                this.setState({notes});
+                this.setState({ notes });
                 return;
             })
             .catch(error => {
@@ -55,7 +55,7 @@ class NoteManager extends Component {
         if (noteId < 1) {
             throw Error('Cannot remove note. Invalid note id specified');
         }
-        
+
         const confirmation = confirm('Are you sure you wish to remove patient?');
 
         if (confirmation) {
@@ -65,7 +65,7 @@ class NoteManager extends Component {
                     NoteService
                         .listNotes()
                         .then(notes => {
-                            this.setState({notes});
+                            this.setState({ notes });
                             return;
                         })
                         .catch(error => {
@@ -82,19 +82,19 @@ class NoteManager extends Component {
 
 
     handleOnFindNotes(title) {
-        
+
         if (!title || title === '') {
             this.listNotes();
             return;
         }
-        
+
         NoteService
             .findNotesByTitle(title)
             .then(notes => {
                 if (!notes) {
                     notes = [];
                 }
-                this.setState({notes});
+                this.setState({ notes });
                 return;
             })
             .catch(error => {
@@ -124,12 +124,12 @@ class NoteManager extends Component {
 
         NoteService
             .addNote(title, content, tags)
-            .then(newNote => {             
+            .then(newNote => {
                 NoteService
                     .listNotes()
                     .then(notes => {
-                        notes.forEach(n => n.id === newNote.id ? n.isNew = 'true' : n.isNew = undefined);                
-                        this.setState({notes});
+                        notes.forEach(n => n.id === newNote.id ? n.isNew = 'true' : n.isNew = undefined);
+                        this.setState({ notes });
                     })
                     .catch(error => console.log(error));
             })
@@ -140,17 +140,17 @@ class NoteManager extends Component {
 
 
     handleOnCloseAddNoteModal() {
-        this.setState({isAddNoteModalOpen: false});
+        this.setState({ isAddNoteModalOpen: false });
     }
 
 
     handleOpenAddNoteModal() {
-        this.setState({isAddNoteModalOpen: true});
+        this.setState({ isAddNoteModalOpen: true });
     }
 
 
     handleOnCloseEditNoteModal() {
-        this.setState({isEditNoteModalOpen: false});
+        this.setState({ isEditNoteModalOpen: false });
     }
 
 
@@ -163,8 +163,8 @@ class NoteManager extends Component {
         NoteService
             .findNote(noteId)
             .then(note => {
-                this.setState({selectedNote: note});
-                this.setState({isEditNoteModalOpen: true});
+                this.setState({ selectedNote: note });
+                this.setState({ isEditNoteModalOpen: true });
                 return;
             })
             .catch(error => {
@@ -176,29 +176,29 @@ class NoteManager extends Component {
 
     handleOnEditNote(note) {
         this.setState({ isEditNoteModalOpen: false });
-        
+
         const { title, content, tags } = note;
-        
+
         if (!title || title.length === 0) {
             throw Error('Title is required');
         }
-        
+
         if (!content || content.length === 0) {
             throw Error('Content is required');
         }
-        
+
         if (!Array.isArray(tags)) {
             throw Error('Tags must be an array');
         }
 
         NoteService
             .updateNote(note)
-            .then(() => {                
+            .then(() => {
                 NoteService
                     .listNotes()
                     .then(notes => {
-                        notes.forEach(n => n.id === note.id ? n.isNew = 'true' : n.isNew = undefined);                
-                        this.setState({notes});
+                        notes.forEach(n => n.id === note.id ? n.isNew = 'true' : n.isNew = undefined);
+                        this.setState({ notes });
                     })
                     .catch(error => console.log(error));
             })
@@ -210,7 +210,7 @@ class NoteManager extends Component {
 
     render() {
         return (
-            <div>     
+            <div>
 
 
                 <div className="alert alert-danger alert-dismissible fade show" role="alert">
@@ -218,7 +218,7 @@ class NoteManager extends Component {
                     <button type="button" className="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </div>     
+                </div>
 
 
                 <Modal isOpen={this.state.isAddNoteModalOpen} onRequestClose={this.handleOnCloseAddNoteModal}>
@@ -228,13 +228,13 @@ class NoteManager extends Component {
                 <Modal isOpen={this.state.isEditNoteModalOpen} onRequestClose={this.handleOnCloseEditNoteModal}>
                     <EditNoteForm onSaveNote={this.handleOnEditNote} onCloseModal={this.handleOnCloseEditNoteModal} note={this.state.selectedNote} />
                 </Modal>
-                
+
 
                 <div className="mb-3">
                     <ControlPanel openAddNoteModal={this.handleOpenAddNoteModal} onFindNotes={this.handleOnFindNotes} />
                 </div>
-                
-                
+
+
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item"><a href="#">Berkshire National Clinic</a></li>

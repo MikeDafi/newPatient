@@ -5,8 +5,13 @@ const Header = (props) => (
     <nav className="header navbar navbar-expand-sm navbar-dark bg-react-black" style={{ width: '100%' }}>
         <div className="container">
             <div className="navbar-brand" style={{ width: '100%' }}>
-                <i className="fa fa-user-md -o fa-4x align-middle mr-2 text-react-"></i>
-                <span className="align-middle text-react-">New Patient</span>
+                <Link to={'/'} style={{ color: 'white' }}>
+
+                    <i className="fa fa-user-md -o fa-4x align-middle mr-2 text-react-"></i>
+                    <span className="align-middle text-react-">New Patient</span>
+
+                </Link>
+
                 <a style={{ marginLeft: '100%', position: 'relative', margin: '40px', padding: '20px' }}>
 
                     {(props.page === 'patients') ? (
@@ -17,15 +22,7 @@ const Header = (props) => (
                             </button>
 
                         </Link>
-                    ) : (
-                            <Link to={'/'}>
-
-                                <button type="button" className='btn btn-success' >
-                                    Manage Patients
-                        </button>
-
-                            </Link>
-                        )}
+                    ) : null}
 
 
 

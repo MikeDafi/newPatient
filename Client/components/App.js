@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import NoteManager from './Notes/NoteManager';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 export default class App extends Component {
 
@@ -59,15 +59,33 @@ export default class App extends Component {
         );
     }
 
+    patient(props) {
+        // const { name } = props.name
+        return (
+            <div>
+                <Header
+                    page="templates"
+                    userName="Berkshire National Clinic"
+                />
+
+                <div className="container mt-5">
+                    PATIENT {props.match.params.name}
+                </div>
+
+            </div>
+        );
+    }
+
     render() {
 
         const initialPage = this.initialPage.bind(this);
         const templates = this.templates.bind(this);
         const account = this.account.bind(this);
+        const patient = this.patient.bind(this);
 
         return (
 
-            <BrowserRouter>
+            <Router>
                 <Route
                     exact
                     path='/'
@@ -84,7 +102,13 @@ export default class App extends Component {
                     path='/account'
                     component={account}
                 />
-            </BrowserRouter>
+
+                <Route
+                    exact
+                    path='/:name'
+                    component={patient}
+                />
+            </Router>
 
 
         );

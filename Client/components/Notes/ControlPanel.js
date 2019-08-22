@@ -15,10 +15,10 @@ class ControlPanel extends Component {
 
     onSearchTitleChanged(event) {
         const title = event.target.value;
-        this.setState({title});
+        this.setState({ title });
     }
 
-    render () {
+    render() {
         return (
             <div>
                 <div className="input-group input-group-lg">
@@ -33,7 +33,7 @@ class ControlPanel extends Component {
                             <i className="fa fa-search"></i>
                         </button>
                     </span>
-                </div>        
+                </div>
             </div>
         );
     }
