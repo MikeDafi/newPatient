@@ -2,7 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-
+Header.propTypes = {
+	page : PropTypes.any,
+	userName : PropTypes.any,
+}
 
 const Header = (props) => (
 
