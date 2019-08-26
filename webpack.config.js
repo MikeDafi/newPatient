@@ -51,7 +51,7 @@ module.exports = {
         inline: false,
         contentBase: path.resolve(__dirname, '/build'),
         compress: true,
-        port: 9000,
+        port: 5000,
         historyApiFallback: true,
     }
 };

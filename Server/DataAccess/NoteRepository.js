@@ -2,10 +2,13 @@
 
 const ObjectID = require('mongodb').ObjectID;
 const DbConnection = require('./DbConnection');
-
+const mongoose = require("mongoose");
 const collection = 'notes';
 
 const connect = () => new DbConnection('mongodb://127.0.0.1:27017/noteworx');
+
+//Connect to MongoDB
+
 
 const filters = {
     id: (id) => {

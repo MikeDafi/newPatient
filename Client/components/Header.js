@@ -1,23 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-<<<<<<< HEAD
 
-Header.propTypes = {
-	page : PropTypes.any,
-	userName : PropTypes.any,
-}
-
-const Header = (props) => (
-
-
-    <nav className="header navbar navbar-expand-sm navbar-dark bg-react-black" style={{ width: '100%' }}>
-        <div className="container">
-            <div className="navbar-brand" style={{ width: '100%' }}>
-                <Link to={'/'} style={{ color: 'white' }}>
-=======
-
->>>>>>> 88532bfe8f9b61f1d8f6acb1d51627e1aa90d112
 
 Header.propTypes = {
     page: PropTypes.string.isRequired,
