@@ -7,37 +7,32 @@ import PropTypes from 'prop-types';
 const Header = (props) => (
 
 
-    <nav className="header navbar navbar-expand-sm navbar-dark bg-react-black" style={{ width: '100%' }}>
-        <div className="container">
-            <div className="navbar-brand" style={{ width: '100%' }}>
+    <nav  style={{ width: '100%' }} style={{ background: '#343a40' }}>
+
+            <div className="navbar-brand" style={{ paddingLeft:'65px' }}>
                 <Link to={'/'} style={{ color: 'white' }}>
 
-                    <i className="fa fa-user-md -o fa-4x align-middle mr-2 text-react-"></i>
-                    <span className="align-middle text-react-">New Patient</span>
+                    <i className="fa fa-user-md -o  mr-2 "></i>
+                    <span className="text-react-">New Patient</span>
 
                 </Link>
 
-                <a style={{ marginLeft: '100%', position: 'relative', margin: '40px', padding: '20px' }}>
+                <a style={{ position: 'relative' }}>
 
                     {(props.page === 'patients') ? (
                         <Link to={'/templates'}>
 
-                            <button type="button" className='btn btn-info' >
+                            <button type="button" className='btn btn-info btn-sm' style={{marginTop: '-3px', marginLeft:'10px'}} >
                                 Manage Templates <span className="badge badge-light">3</span>
                             </button>
 
                         </Link>
                     ) : null}
-
-
-
-
-
                 </a>
 
                 <Link to={'/account'}>
 
-                    <button type="button" className='btn btn-dark' style={{ right: '0px', position: 'absolute', margin: '21px' }}>
+                    <button type="button" className='btn btn-dark' style={{ right: '0px', position: 'absolute', marginTop: '-3px' }}>
                         {props.userName} <span className="badge badge-danger">0</span>
                     </button>
 
@@ -45,7 +40,6 @@ const Header = (props) => (
 
             </div>
 
-        </div>
     </nav>
 
 );

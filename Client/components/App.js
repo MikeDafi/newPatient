@@ -3,7 +3,14 @@ import Header from './Header';
 import NoteManager from './Notes/NoteManager';
 import TemplateManager from './Templates/TemplateManager';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import ResponsiveDrawer from './Templates/ResponsiveDrawer'
+import { Sidebar, SidebarItem } from 'react-responsive-sidebar';
 
+const items = [
+    <SidebarItem>Dashboard</SidebarItem>,
+    <SidebarItem>Profile</SidebarItem>,
+    <SidebarItem>Settings</SidebarItem>,
+];
 export default class App extends Component {
 
     constructor() {
@@ -17,15 +24,28 @@ export default class App extends Component {
 
     templates() {
         return (
-            <div>
-
-                <Header
-                    page="account"
-                    userName="Berkshire National Clinic"
-                />
-                <div className="container mt-5">
+            <div >
+                <Sidebar toggleIconSize={18} content={items} toggleIconColor='#fff' width={160} color='#fff' background='#343a40' style={{  }}>
+                    <Header
+                        page="template"
+                        userName="Berkshire National Clinic"
+                    />
                     <TemplateManager />
+                </Sidebar>
+                {/* <Header
+                        page="account"
+                        userName="Berkshire National Clinic"
+                    />
+                <div className="container mt-1">
+
+                    < ResponsiveDrawer />
                 </div>
+                <div className="container mt-10">
+                    
+                    <div style={{ margin: '20px' }}>
+                        <TemplateManager />
+                    </div>
+                </div> */}
             </div>
         );
     }
@@ -106,7 +126,7 @@ export default class App extends Component {
                 />
 
                 <Route
-                    
+
                     path="/p/:name"
                     component={patient}
                 />
