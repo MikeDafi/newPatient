@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 
 
@@ -43,5 +43,10 @@ const Header = (props) => (
     </nav>
 
 );
+
+Header.propTypes = {
+    page : PropTypes.string,
+    userName : PropTypes.string
+};
 
 export default Header;

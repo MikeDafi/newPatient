@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import NoteManager from './Notes/NoteManager';
-import TemplateManager from './Templates/TemplateManager';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Sidebar, SidebarItem } from 'react-responsive-sidebar';
 
-const items = [
-    <SidebarItem key=''>Dashboard</SidebarItem>,
-    <SidebarItem key=''>Profile</SidebarItem>,
-    <SidebarItem key=''>Settings</SidebarItem>,
-];
+import SidebarResponsive from './Templates/SidebarResponsive'
+
 export default class App extends Component {
 
     constructor() {
@@ -24,27 +19,7 @@ export default class App extends Component {
     templates() {
         return (
             <div >
-                <Sidebar toggleIconSize={18} content={items} toggleIconColor='#fff' width={160} color='#fff' background='#343a40' style={{}}>
-                    <Header
-                        page="template"
-                        userName="Berkshire National Clinic"
-                    />
-                    <TemplateManager />
-                </Sidebar>
-                {/* <Header
-                        page="account"
-                        userName="Berkshire National Clinic"
-                    />
-                <div className="container mt-1">
-
-                    < ResponsiveDrawer />
-                </div>
-                <div className="container mt-10">
-                    
-                    <div style={{ margin: '20px' }}>
-                        <TemplateManager />
-                    </div>
-                </div> */}
+                <SidebarResponsive />
             </div>
         );
     }

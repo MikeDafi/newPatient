@@ -10,6 +10,15 @@ module.exports = {
         publicPath: '/'
     },
     module: {
+        loaders: [{
+
+            test: /\.js?$/,
+      
+            loaders: ['babel'],
+      
+            exclude: /node_modules/
+      
+          }],
         rules: [
             {
                 enforce: 'pre',
