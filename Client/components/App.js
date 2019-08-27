@@ -3,13 +3,12 @@ import Header from './Header';
 import NoteManager from './Notes/NoteManager';
 import TemplateManager from './Templates/TemplateManager';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import ResponsiveDrawer from './Templates/ResponsiveDrawer'
 import { Sidebar, SidebarItem } from 'react-responsive-sidebar';
 
 const items = [
-    <SidebarItem>Dashboard</SidebarItem>,
-    <SidebarItem>Profile</SidebarItem>,
-    <SidebarItem>Settings</SidebarItem>,
+    <SidebarItem key=''>Dashboard</SidebarItem>,
+    <SidebarItem key=''>Profile</SidebarItem>,
+    <SidebarItem key=''>Settings</SidebarItem>,
 ];
 export default class App extends Component {
 
@@ -25,7 +24,7 @@ export default class App extends Component {
     templates() {
         return (
             <div >
-                <Sidebar toggleIconSize={18} content={items} toggleIconColor='#fff' width={160} color='#fff' background='#343a40' style={{  }}>
+                <Sidebar toggleIconSize={18} content={items} toggleIconColor='#fff' width={160} color='#fff' background='#343a40' style={{}}>
                     <Header
                         page="template"
                         userName="Berkshire National Clinic"

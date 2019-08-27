@@ -51,8 +51,8 @@ const SidebarContent = props => {
                     Home
                 </a>
 
-                <a 
-                href="responsive_example.html" style={styles.sidebarLink}>
+                <a
+                    href="responsive_example.html" style={styles.sidebarLink}>
                     Responsive Example
                 </a>
 
