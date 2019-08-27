@@ -1,34 +1,146 @@
-import React, { Component } from 'react';
-import {Sidebar,SidebarItem} from 'react-responsive-sidebar';
+
+import React, { Component } from 'react'
+
+import Sidebar from "react-sidebar";
 import Header from '../Header';
-import TemplateManager from '../Templates/TemplateManager';
+import TemplateManager from './TemplateManager';
+import Button from '@material-ui/core/Button';
 import { AccessAlarm, Camera, TrendingUp, Apps } from '@material-ui/icons';
+const mql = window.matchMedia(`(min-width: 800px)`);
 
 
-class SidebarResponsive extends Component{
-    handleSidebarClick() {
-        return alert("Hi");
+
+
+
+
+
+class ResponsiveDrawer extends React.Component {
+
+  constructor(props) {
+
+    super(props);
+
+    this.state = {
+
+      sidebarDocked: mql.matches,
+
+      sidebarOpen: false
+
+    };
+
+ 
+
+    this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
+
+    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+
+  }
+
+ 
+
+  componentWillMount() {
+
+    mql.addListener(this.mediaQueryChanged);
+
+  }
+
+ 
+
+  componentWillUnmount() {
+
+    this.state.mql.removeListener(this.mediaQueryChanged);
+
+  }
+
+ 
+
+  onSetSidebarOpen(open) {
+
+    this.setState({ sidebarOpen: open });
+
+  }
+
+ 
+
+  mediaQueryChanged() {
+
+    this.setState({ sidebarDocked: mql.matches, sidebarOpen: false });
+
+  }
+
+ 
+
+  render() {
+
+    return (
+
+      <Sidebar
+      styles={{ sidebar: { background:'rgb(52, 58, 68)' } }}
+        sidebar={
+        <div>
+            <Button style={{width:'100%', color:'white', marginLeft:'0px', textAlign:'left', marginRight:'10px', marginTop:'10px' }}>
+                <Camera style={{marginLeft:'0%'}}/> Form Wizard
+            </Button><br/>
+            <Button style={{width:'100%', color:'white', marginLeft:'0px', textAlign:'left', marginRight:'10px' }}>
+                <AccessAlarm/> Template Portal
+            </Button><br/>
+            <Button style={{width:'100%', color:'white', marginLeft:'0px', textAlign:'left', marginRight:'10px' }}>
+                <TrendingUp/> Marketing Materials
+            </Button><br/>
+            <Button style={{width:'100%', color:'white', marginLeft:'0px', textAlign:'left', marginRight:'10px' }}>
+                <Apps/> Get Templates
+            </Button>
+        </div>
     }
-    render() {
 
-        const items = [
-            <SidebarItem onClick={function(){this.handleSidebarClick(todo)}} key='' leftIcon= {<Camera/>} color='white'>Form Studio</SidebarItem>,
-            <SidebarItem key='' href='/' leftIcon= {<AccessAlarm/>} color='white'>Schedule Reminders</SidebarItem>,
-            <SidebarItem key='' href='/' leftIcon= {<TrendingUp/>} color='white'>Marketing Materials</SidebarItem>,
-            <SidebarItem key='' href='/' leftIcon= {<Apps/>} color='white'>More Templates</SidebarItem>
-        ];
+        open={this.state.sidebarOpen}
 
+        docked={this.state.sidebarDocked}
 
-        return(
-            <Sidebar backdrop={false} toggleIconSize={18} content={items} toggleIconColor='#fff' width={160} color='#fff' background='#343a40' style={{}}>
-                    <Header
-                        page="template"
-                        userName="Berkshire National Clinic"
-                    />
-                    <TemplateManager />
-                </Sidebar>
-        );
-    }
+        onSetOpen={this.onSetSidebarOpen}
+
+      >
+          <Header
+
+page="template"
+
+userName="Berkshire National Clinic"
+
+/>
+        <TemplateManager/>
+
+      </Sidebar>
+
+    );
+
+  }
+
 }
 
-export default SidebarResponsive;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export default ResponsiveDrawer;

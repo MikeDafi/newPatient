@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 const Header = (props) => (
 
 
-    <nav style={{ background: '#343a40', width: '100%' }}>
+    <nav style={{ background: 'rgb(52, 58, 68)', width: '100%' }}>
 
         <div className="navbar-brand" style={{ paddingLeft: '65px' }}>
             <Link to={'/'} style={{ color: 'white' }}>
