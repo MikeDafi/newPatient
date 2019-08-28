@@ -1,0 +1,3 @@
+[submodule "mern-auth"]
+	path = mern-auth
+	url = https://github.com/rishipr/mern-auth.git

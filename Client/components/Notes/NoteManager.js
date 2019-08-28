@@ -213,10 +213,10 @@ class NoteManager extends Component {
             <div>
 
 
-                <div className="alert alert-danger alert-dismissible fade show" role="alert">
+                <div className='alert alert-danger alert-dismissible fade show' role='alert'>
                     <strong>Holy guacamole!</strong> You should validate your email address.
-                    <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                    <button type='button' className='close' data-dismiss='alert' aria-label='Close'>
+                        <span aria-hidden='true'>&times;</span>
                     </button>
                 </div>
 
@@ -230,19 +230,19 @@ class NoteManager extends Component {
                 </Modal>
 
 
-                <div className="mb-3">
+                <div className='mb-3'>
                     <ControlPanel openAddNoteModal={this.handleOpenAddNoteModal} onFindNotes={this.handleOnFindNotes} />
                 </div>
 
 
-                <nav aria-label="breadcrumb">
-                    <ol className="breadcrumb">
-                        <li className="breadcrumb-item"><a href="#">Berkshire National Clinic</a></li>
-                        <li className="breadcrumb-item active" aria-current="page">Patients</li>
+                <nav aria-label='breadcrumb'>
+                    <ol className='breadcrumb'>
+                        <li className='breadcrumb-item'><a href='#'>Berkshire National Clinic</a></li>
+                        <li className='breadcrumb-item active' aria-current='page'>Patients</li>
                     </ol>
                 </nav>
 
-                <hr size="30"></hr>
+                <hr size='30'></hr>
                 <NoteTable notes={this.state.notes} onDeleteNote={this.handleOnDeleteNote} onOpenEditNoteModal={this.handleOpenEditNoteModal} />
 
 

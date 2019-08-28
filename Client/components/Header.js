@@ -1,19 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import PropTypes from 'prop-types';
-
-
+import PropTypes from 'prop-types';
 
 const Header = (props) => (
 
 
     <nav style={{ background: '#343a40', width: '100%' }}>
 
-        <div className="navbar-brand" style={{ paddingLeft: '65px' }}>
+        <div className='navbar-brand' style={{ paddingLeft: '65px' }}>
             <Link to={'/'} style={{ color: 'white' }}>
 
-                <i className="fa fa-user-md -o  mr-2 "></i>
-                <span className="text-react-">New Patient</span>
+                <i className='fa fa-user-md -o  mr-2 '></i>
+                <span className='text-react-'>New Patient</span>
 
             </Link>
 
@@ -22,8 +20,8 @@ const Header = (props) => (
                 {(props.page === 'patients') ? (
                     <Link to={'/templates'}>
 
-                        <button type="button" className='btn btn-info btn-sm' style={{ marginTop: '-3px', marginLeft: '10px' }} >
-                            Manage Templates <span className="badge badge-light">3</span>
+                        <button type='button' className='btn btn-info btn-sm' style={{ marginTop: '-3px', marginLeft: '10px' }} >
+                            Manage Templates <span className='badge badge-light'>3</span>
                         </button>
 
                     </Link>
@@ -32,8 +30,8 @@ const Header = (props) => (
 
             <Link to={'/account'}>
 
-                <button type="button" className='btn btn-dark' style={{ right: '0px', position: 'absolute', marginTop: '-3px' }}>
-                    {props.userName} <span className="badge badge-danger">0</span>
+                <button type='button' className='btn btn-dark' style={{ right: '0px', position: 'absolute', marginTop: '-3px' }}>
+                    {props.userName} <span className='badge badge-danger'>0</span>
                 </button>
 
             </Link>
@@ -43,5 +41,10 @@ const Header = (props) => (
     </nav>
 
 );
+
+Header.propTypes = {
+    page : PropTypes.string,
+    userName : PropTypes.object
+};
 
 export default Header;

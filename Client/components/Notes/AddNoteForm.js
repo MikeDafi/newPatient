@@ -134,88 +134,88 @@ class AddNoteForm extends Component {
     render() {
 
         const validationErrorSummary = this.state.validationErrors.map(error =>
-            <div key={uuidv1()} className="alert alert-danger alert-dismissible fade show">
+            <div key={uuidv1()} className='alert alert-danger alert-dismissible fade show'>
                 {error.message}
-                <button type="button" className="close" data-dismiss="alert">
+                <button type='button' className='close' data-dismiss='alert'>
                     <span>&times;</span>
                 </button>
             </div>
         );
 
         return (
-            <div className="card card-body">
-                <div className="mb-2">
-                    <span className="h4 my-auto"><i className="fa fa-file-text-o fa-lg"></i> New Patient</span>
-                    <a className="float-right ml-auto" onClick={this.props.onCloseModal}>
-                        <i className="fa fa-remove fa-2x mr-2 text-danger"></i>
+            <div className='card card-body'>
+                <div className='mb-2'>
+                    <span className='h4 my-auto'><i className='fa fa-file-text-o fa-lg'></i> New Patient</span>
+                    <a className='float-right ml-auto' onClick={this.props.onCloseModal}>
+                        <i className='fa fa-remove fa-2x mr-2 text-danger'></i>
                     </a>
                 </div>
                 {validationErrorSummary}
-                <form onSubmit={this.onSave} className="mt-2">
+                <form onSubmit={this.onSave} className='mt-2'>
 
-                    <div className="form-group">
-                        <label htmlFor="title">Name</label>
-                        <input type="text" className="form-control" name="title" autoFocus onChange={this.onTitleChange} />
+                    <div className='form-group'>
+                        <label htmlFor='title'>Name</label>
+                        <input type='text' className='form-control' name='title' autoFocus onChange={this.onTitleChange} />
                     </div>
 
-                    <div className="form-group">
-                        <label htmlFor="content">Content</label>
-                        <textarea className="form-control" name="content" rows="3" onChange={this.onContentChange}></textarea>
+                    <div className='form-group'>
+                        <label htmlFor='content'>Content</label>
+                        <textarea className='form-control' name='content' rows='3' onChange={this.onContentChange}></textarea>
                     </div>
 
-                    <div className="form-group">
-                        <label htmlFor="example-tel-input">Telephone</label>
-                        <input className="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input" />
+                    <div className='form-group'>
+                        <label htmlFor='example-tel-input'>Telephone</label>
+                        <input className='form-control' type='tel' value='1-(555)-555-5555' id='example-tel-input' />
                     </div>
 
-                    <div className="form-group">
-                        <label htmlFor="example-email-input" >Email</label>
-                        <input className="form-control" type="email" value="bootstrap@example.com" id="example-email-input" />
+                    <div className='form-group'>
+                        <label htmlFor='example-email-input' >Email</label>
+                        <input className='form-control' type='email' value='bootstrap@example.com' id='example-email-input' />
                     </div>
 
-                    <div className="form-group">
+                    <div className='form-group'>
 
-                        <label htmlFor="content">Forms</label>
-                        <select className="form-control">
+                        <label htmlFor='content'>Forms</label>
+                        <select className='form-control'>
                             <option>Default select</option>
                         </select>
 
-                        <button className="btn btn-primary btn-sm btn-block mt-2 mt-sm-0"
+                        <button className='btn btn-primary btn-sm btn-block mt-2 mt-sm-0'
                             onClick={this.props.onCloseModal}
-                            type="button">
-                            <i className="fa fa-plus mr-2"></i>Add Form
+                            type='button'>
+                            <i className='fa fa-plus mr-2'></i>Add Form
                         </button>
 
-                        <select className="custom-select" multiple style={{ width: '100%', marginTop: '10px' }}>
+                        <select className='custom-select' multiple style={{ width: '100%', marginTop: '10px' }}>
                             <option >New Patient Form</option>
-                            <option value="1">Health Insurance Information</option>
-                            <option value="2">Psychological Quizlet</option>
-                            <option value="3">New Application Waivor</option>
+                            <option value='1'>Health Insurance Information</option>
+                            <option value='2'>Psychological Quizlet</option>
+                            <option value='3'>New Application Waivor</option>
                         </select>
 
-                        <button className="btn btn-danger btn-sm btn-block mt-2 mt-sm-0"
+                        <button className='btn btn-danger btn-sm btn-block mt-2 mt-sm-0'
                             onClick={this.props.onCloseModal}
-                            type="button">
-                            <i className="fa fa-remove mr-2"></i>Remove Form
+                            type='button'>
+                            <i className='fa fa-remove mr-2'></i>Remove Form
                         </button>
                     </div>
 
-                    <div className="form-group">
-                        <label htmlFor="tags">Tags</label>
-                        <input type="text" className="form-control" name="tags" onChange={this.onTagsChange} />
+                    <div className='form-group'>
+                        <label htmlFor='tags'>Tags</label>
+                        <input type='text' className='form-control' name='tags' onChange={this.onTagsChange} />
                     </div>
 
-                    <div className="form-group row">
-                        <div className="col-sm-4 col-md-3 col-xl-2 ml-auto">
-                            <button type="submit" className="btn btn-success btn-lg btn-block">
-                                <i className="fa fa-save mr-2"></i>Save
+                    <div className='form-group row'>
+                        <div className='col-sm-4 col-md-3 col-xl-2 ml-auto'>
+                            <button type='submit' className='btn btn-success btn-lg btn-block'>
+                                <i className='fa fa-save mr-2'></i>Save
                             </button>
                         </div>
-                        <div className="col-sm-4 col-md-3 col-xl-2">
-                            <button className="btn btn-danger btn-lg btn-block mt-2 mt-sm-0"
+                        <div className='col-sm-4 col-md-3 col-xl-2'>
+                            <button className='btn btn-danger btn-lg btn-block mt-2 mt-sm-0'
                                 onClick={this.props.onCloseModal}
-                                type="button">
-                                <i className="fa fa-remove mr-2"></i>Cancel
+                                type='button'>
+                                <i className='fa fa-remove mr-2'></i>Cancel
                             </button>
                         </div>
                     </div>
