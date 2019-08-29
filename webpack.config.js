@@ -10,6 +10,15 @@ module.exports = {
         publicPath: '/'
     },
     module: {
+        loaders: [{
+
+            test: /\.js?$/,
+      
+            loaders: ['babel'],
+      
+            exclude: /node_modules/
+      
+          }],
         rules: [
             {
                 enforce: 'pre',
@@ -51,7 +60,7 @@ module.exports = {
         inline: false,
         contentBase: path.resolve(__dirname, '/build'),
         compress: true,
-        port: 5000,
+        port: 9000,
         historyApiFallback: true,
     }
 };
