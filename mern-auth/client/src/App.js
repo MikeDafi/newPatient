@@ -53,7 +53,7 @@ class App extends Component {
     return (
       <div>
         <Header
-          page="account"
+          page="patients"
           userName="Berkshire National Clinic"
         />
         <div className="container mt-5">

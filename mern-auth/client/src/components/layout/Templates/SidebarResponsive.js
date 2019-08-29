@@ -79,11 +79,11 @@ class ResponsiveDrawer extends React.Component {
       styles={{ sidebar: { background:'rgb(52, 58, 68)' } }}
         sidebar={
         <div>
-          hiiii
+          {/* hiiii
             <button >
                 <Camera style={{marginLeft:'0%'}}/> Form Wizard
-            </button> 
-            {/* <Button style={{width:'100%', color:'white', marginLeft:'0px', textAlign:'left', marginRight:'10px' }}>
+            </button>  */}
+            <Button style={{width:'100%', color:'white', marginLeft:'0px', textAlign:'left', marginRight:'10px' }}>
                 <AccessAlarm/> Template Portal
             </Button><br/>
             <Button style={{width:'100%', color:'white', marginLeft:'0px', textAlign:'left', marginRight:'10px' }}>
@@ -91,7 +91,7 @@ class ResponsiveDrawer extends React.Component {
             </Button><br/>
             <Button style={{width:'100%', color:'white', marginLeft:'0px', textAlign:'left', marginRight:'10px' }}>
                 <Apps/> Get Templates
-            </Button> */}
+            </Button>
         </div>
     }
 
@@ -109,7 +109,7 @@ page="template"
 userName="Berkshire National Clinic"
 
 />
-        {/* <TemplateManager/> */}
+        <TemplateManager/>
 
       </Sidebar>
 

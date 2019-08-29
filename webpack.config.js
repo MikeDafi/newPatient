@@ -3,7 +3,7 @@ const CleanWebPackPlugin = require('clean-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './Client/index.js',
+    entry: '../mern-auth/client/src/index.js',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, '/build'),
