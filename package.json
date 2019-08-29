@@ -13,6 +13,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"No tests available\" && exit 1"
   },
+  "proxy":"http://localhost:5000",
   "author": "Michaels",
   "license": "MIT",
   "babel": {
