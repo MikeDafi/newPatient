@@ -18,6 +18,8 @@ import NoteManager from './components/layout/Notes/NoteManager';
 import Header from './components/Header';
 import "./App.css";
 
+let namE = "";
+
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -25,6 +27,7 @@ if (localStorage.jwtToken) {
   setAuthToken(token);
   // Decode token and get user info and exp
   const decoded = jwt_decode(token);
+  namE = decoded.name
   // Set user and isAuthenticated
   store.dispatch(setCurrentUser(decoded));
   // Check for expired token
@@ -44,7 +47,7 @@ class App extends Component {
   templates() {
     return (
       <div >
-        <SidebarResponsive />
+        <SidebarResponsive name={namE}/>
       </div>
     );
   }
@@ -54,7 +57,7 @@ class App extends Component {
       <div>
         <Header
           page="patients"
-          userName="Berkshire National Clinic"
+          userName={namE}
         />
         <div className="container mt-5">
           ACCOUNT
@@ -66,16 +69,8 @@ class App extends Component {
 
   initialPage() {
     return (
-      <div>
-
-        <Header
-          page="patients"
-          userName="Berkshire National Clinic"
-        />
-        <div className="container mt-5">
-          <NoteManager />
-        </div>
-      </div>
+      <Landing 
+      name={namE}/>
     );
   }
 
@@ -109,7 +104,7 @@ const patient = this.patient.bind(this);
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Route exact path="/" component={Landing} />
+            <Route exact path="/" component={initialPage} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Switch>

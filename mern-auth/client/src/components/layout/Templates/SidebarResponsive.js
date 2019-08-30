@@ -46,11 +46,11 @@ class ResponsiveDrawer extends React.Component {
 
  
 
-  componentWillUnmount() {
+  // componentWillUnmount() {
 
-    this.state.mql.removeListener(this.mediaQueryChanged);
+  //   this.state.mql.removeListener(this.mediaQueryChanged);
 
-  }
+  // }
 
  
 
@@ -74,44 +74,49 @@ class ResponsiveDrawer extends React.Component {
 
     return (
 
-      <Sidebar
-      shadow={false}
-      styles={{ sidebar: { background:'rgb(52, 58, 68)' } }}
-        sidebar={
-        <div>
-          {/* hiiii
+      <div>
+        <Header
+
+          page="template"
+
+          userName={this.props.name}
+
+        />
+
+        <Sidebar
+          shadow={false}
+          styles={{ sidebar: { background: 'rgb(52, 58, 68)' } }}
+          sidebar={
+            <div>
+              {/* hiiii
             <button >
                 <Camera style={{marginLeft:'0%'}}/> Form Wizard
             </button>  */}
-            <Button style={{width:'100%', color:'white', marginLeft:'0px', textAlign:'left', marginRight:'10px' }}>
-                <AccessAlarm/> Template Portal
-            </Button><br/>
-            <Button style={{width:'100%', color:'white', marginLeft:'0px', textAlign:'left', marginRight:'10px' }}>
-                <TrendingUp/> Marketing Materials
-            </Button><br/>
-            <Button style={{width:'100%', color:'white', marginLeft:'0px', textAlign:'left', marginRight:'10px' }}>
-                <Apps/> Get Templates
+              <br /><br />
+              <Button style={{ width: '100%', color: 'white', marginLeft: '0px', textAlign: 'left', height: '50px'}}>
+                <AccessAlarm /> Template Portal
+            </Button><br />
+              <Button style={{ width: '100%', color: 'white', marginLeft: '0px', textAlign: 'left', height: '50px' }}>
+                <TrendingUp /> Marketing Materials
+            </Button><br />
+              <Button style={{ width: '100%', color: 'white', marginLeft: '0px', textAlign: 'left', height:'50px' }}>
+                <Apps /> Get Templates
             </Button>
-        </div>
-    }
+            </div>
+          }
 
-        open={this.state.sidebarOpen}
+          open={this.state.sidebarOpen}
 
-        docked={this.state.sidebarDocked}
+          docked={this.state.sidebarDocked}
 
-        onSetOpen={this.onSetSidebarOpen}
+          onSetOpen={this.onSetSidebarOpen}
 
-      >
-          <Header
+        >
 
-page="template"
+          <TemplateManager />
 
-userName="Berkshire National Clinic"
-
-/>
-        <TemplateManager/>
-
-      </Sidebar>
+        </Sidebar>
+      </div>
 
     );
 

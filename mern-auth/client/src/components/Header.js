@@ -7,9 +7,9 @@ import PropTypes from 'prop-types';
 const Header = (props) => (
 
 
-    <nav style={{ background: 'rgb(52, 58, 68)', width: '100%', height: '30px' }}>
+    <nav style={{ background: 'rgb(52, 58, 68)', width: '100%', height: '30px', position:'absolute', zIndex:3 ,boxShadow:'none',left:'0px'}}>
 
-        <div className="navbar-brand" style={{ paddingLeft: '65px', position: "absolute", marginTop: "-20px" }}>
+        <div className="navbar-brand" style={{ paddingLeft: '50px', position: "absolute", marginTop: "-20px" }}>
             <Link to={'/'} style={{ color: 'white' }}>
                 <i className="fa fa-user-md -o  mr-2 "></i>
                 <span className="text-react-">New Patient</span>
