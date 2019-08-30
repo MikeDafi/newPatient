@@ -18,6 +18,7 @@ import NoteManager from './components/layout/Notes/NoteManager';
 import Header from './components/Header';
 import "./App.css";
 import TemplateManager from "./components/layout/Templates/TemplateManager";
+import Homepage from "./components/dashboard/Homepage";
 
 let namE = "";
 
@@ -42,15 +43,54 @@ if (localStorage.jwtToken) {
   }
 }
 class App extends Component {
+  constructor(props) {
+
+    super(props);
+
+    this.state = {
+
+      name: "",
+
+      sidebarOpen: false
+
+    };
+    this.setState({ name: namE })
+    this.handleLogOut = this.handleLogOut.bind(this);
+
+  }
+  componentDidMount() {
+    if (localStorage.jwtToken) {
+      // Set auth token header auth
+      const token = localStorage.jwtToken;
+      setAuthToken(token);
+      // Decode token and get user info and exp
+      const decoded = jwt_decode(token);
+      namE = decoded.name
+      // Set user and isAuthenticated
+      store.dispatch(setCurrentUser(decoded));
+      this.setState({ name: namE });
+      // Check for expired token
+      const currentTime = Date.now() / 1000; // to get in milliseconds
+      if (decoded.exp < currentTime) {
+        // Logout user
+        store.dispatch(logoutUser());
+      }
+        // // Redirect to login
+        // window.location.href = "./login";
+      
+    
+  }}
 
   handleLogOut() {
     store.dispatch(logoutUser());
+    namE = ""
+    this.setState({name:""})
   }
 
   templates() {
     return (
       <div >
-        <SidebarResponsive name={namE} />
+        <SidebarResponsive name={this.state.name} />
       </div>
     );
   }
@@ -60,7 +100,7 @@ class App extends Component {
       <div>
         <Header
           page="patients"
-          userName={namE}
+          userName={this.state.name}
         />
         <Dashboard/>
       </div>
@@ -69,9 +109,10 @@ class App extends Component {
 
   initialPage() {
     return (
-      <Landing
-        name={namE}
-        hLogOut={this.handleLogOut} />
+      <Homepage
+        name={this.state.name}
+        logoutUser={this.handleLogOut.bind(this)}
+        />
     );
   }
 
@@ -82,7 +123,7 @@ class App extends Component {
       <div>
         <Header
           page="patients"
-          userName={namE}
+          userName={this.state.name}
         />
 
         <div >
