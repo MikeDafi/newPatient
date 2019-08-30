@@ -42,7 +42,10 @@ if (localStorage.jwtToken) {
 }
 class App extends Component {
 
-
+  handleLogOut() {
+    store.dispatch(logoutUser());
+    this.forceUpdate();
+  }
 
   templates() {
     return (
@@ -70,7 +73,8 @@ class App extends Component {
   initialPage() {
     return (
       <Landing 
-      name={namE}/>
+      name={namE}
+      hLogOut = { this.handleLogOut}/>
     );
   }
 
