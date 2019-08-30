@@ -43,7 +43,7 @@ const Header = (props) => (
 
         <Link to={'/account'}>
 
-            <button type="button" className='btn btn-dark' style={{ right: '30px', marginTop: '0px', position: 'absolute', height: '30px', boxShadow: 'none', borderRadius: 0}}>
+            <button type="button" className='btn btn-dark' style={{ right: '0px', marginTop: '0px', position: 'absolute', height: '30px', boxShadow: 'none', borderRadius: 0}}>
                 {props.userName} <div style={{ marginLeft: '10px' }} className="badge badge-danger">0</div>
             </button>
 
