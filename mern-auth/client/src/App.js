@@ -17,6 +17,7 @@ import SidebarResponsive from './components/layout/Templates/SidebarResponsive'
 import NoteManager from './components/layout/Notes/NoteManager';
 import Header from './components/Header';
 import "./App.css";
+import TemplateManager from "./components/layout/Templates/TemplateManager";
 
 let namE = "";
 
@@ -44,13 +45,12 @@ class App extends Component {
 
   handleLogOut() {
     store.dispatch(logoutUser());
-    this.forceUpdate();
   }
 
   templates() {
     return (
       <div >
-        <SidebarResponsive name={namE}/>
+        <SidebarResponsive name={namE} />
       </div>
     );
   }
@@ -62,19 +62,16 @@ class App extends Component {
           page="patients"
           userName={namE}
         />
-        <div className="container mt-5">
-          ACCOUNT
-            </div>
-
+        <Dashboard/>
       </div>
     );
   }
 
   initialPage() {
     return (
-      <Landing 
-      name={namE}
-      hLogOut = { this.handleLogOut}/>
+      <Landing
+        name={namE}
+        hLogOut={this.handleLogOut} />
     );
   }
 
@@ -88,7 +85,7 @@ class App extends Component {
           userName={namE}
         />
 
-        <div > 
+        <div >
           <NoteManager />
         </div>
 
@@ -102,7 +99,7 @@ class App extends Component {
     const initialPage = this.initialPage.bind(this);
     const templates = this.templates.bind(this);
     const account = this.account.bind(this);
-const patient = this.patient.bind(this);
+    const patient = this.patient.bind(this);
 
     return (
       <Provider store={store}>
@@ -123,7 +120,7 @@ const patient = this.patient.bind(this);
               <PrivateRoute
                 exact
                 path='/account'
-                component={patient}
+                component={account}
               />
 
               <PrivateRoute
