@@ -85,7 +85,7 @@ class App extends Component {
       <div>
         <Header
           page="patients"
-          userName="Berkshire National Clinic"
+          userName={namE}
         />
 
         <div > 

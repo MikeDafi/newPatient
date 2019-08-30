@@ -20,7 +20,7 @@ const Header = (props) => (
 
             {(props.page === 'patients') ? (
                 <Link to={'/templates'}>
-                    <button type="button" className='btn btn-success' style={{ left: '200px', marginTop: '0px', position: 'absolute', height: '30px', boxShadow: 'none', borderRadius: 0,border:0}}>
+                    <button type="button" className='btn btn-success' style={{ left: '201px', marginTop: '0px', position: 'absolute', height: '30px', boxShadow: 'none', borderRadius: 0,border:0}}>
                         Manage Templates <div style={{ marginLeft: '10px' }} className="badge badge-dark">0</div>
                     </button>
                     {/* <button type="button" className='btn btn-info btn-sm' style={{ marginLeft: '200px', position: "absolute", height: '30px' }} >
@@ -30,7 +30,7 @@ const Header = (props) => (
                 </Link>
             ) : (
                     <Link to={'/patients'}>
-                        <button type="button" className='btn btn-success' style={{ left: '200px', marginTop: '0px', position: 'absolute', height: '30px', boxShadow: 'none', borderRadius: 0, border: 0 }}>
+                        <button type="button" className='btn btn-success' style={{ left: '201px', marginTop: '0px', position: 'absolute', height: '30px', boxShadow: 'none', borderRadius: 0, border: 0 }}>
                             Manage Patients <div style={{ marginLeft: '10px' }} className="badge badge-dark">0</div>
                         </button>
                         {/* <button type="button" className='btn btn-info btn-sm' style={{ marginLeft: '200px', position: "absolute", height: '30px' }} >
