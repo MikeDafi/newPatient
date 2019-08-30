@@ -27,7 +27,7 @@ class Landing extends Component {
             <p> Hello, {this.props.name} !</p>
             <Button color='secondary' variant="contained"
             style={{marginRight:'5px'}}
-              href='/Dashboard'>Patient Portal
+              href='/patients'>Patient Portal
             </Button>
             <Button color='secondary' variant="contained"
               onClick={this.props.hLogOut}>Log Out

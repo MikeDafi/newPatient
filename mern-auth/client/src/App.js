@@ -84,12 +84,12 @@ class App extends Component {
     return (
       <div>
         <Header
-          page="templates"
+          page="patients"
           userName="Berkshire National Clinic"
         />
 
-        <div className="container mt-5">
-          PATIENT {props.match.params.name}
+        <div > 
+          <NoteManager />
         </div>
 
       </div>
@@ -123,12 +123,12 @@ const patient = this.patient.bind(this);
               <PrivateRoute
                 exact
                 path='/account'
-                component={account}
+                component={patient}
               />
 
               <PrivateRoute
 
-                path="/p/:name"
+                path="/patients"
                 component={patient}
               />
             </Switch>

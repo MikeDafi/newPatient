@@ -210,7 +210,7 @@ class NoteManager extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container mt-6" style={{top:'30px', position:'relative', paddingTop:'50px'}}>
 
 
                 <div className="alert alert-danger alert-dismissible fade show" role="alert">
@@ -235,12 +235,12 @@ class NoteManager extends Component {
                 </div>
 
 
-                <nav aria-label="breadcrumb">
+                {/* <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item"><a href="#">Berkshire National Clinic</a></li>
                         <li className="breadcrumb-item active" aria-current="page">Patients</li>
                     </ol>
-                </nav>
+                </nav> */}
 
                 <hr size="30"></hr>
                 <NoteTable notes={this.state.notes} onDeleteNote={this.handleOnDeleteNote} onOpenEditNoteModal={this.handleOpenEditNoteModal} />
