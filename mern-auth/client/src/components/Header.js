@@ -28,7 +28,17 @@ const Header = (props) => (
                     </button> */}
 
                 </Link>
-            ) : null}
+            ) : (
+                    <Link to={'/patients'}>
+                        <button type="button" className='btn btn-success' style={{ left: '200px', marginTop: '0px', position: 'absolute', height: '30px', boxShadow: 'none', borderRadius: 0, border: 0 }}>
+                            Manage Patients <div style={{ marginLeft: '10px' }} className="badge badge-dark">0</div>
+                        </button>
+                        {/* <button type="button" className='btn btn-info btn-sm' style={{ marginLeft: '200px', position: "absolute", height: '30px' }} >
+                        Manage Templates <span className="badge badge-light">3</span>
+                    </button> */}
+
+                    </Link>
+            )}
         </a>
 
         <Link to={'/account'}>
