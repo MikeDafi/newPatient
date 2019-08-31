@@ -19,6 +19,9 @@ import Header from './components/Header';
 import "./App.css";
 import TemplateManager from "./components/layout/Templates/TemplateManager";
 import Homepage from "./components/dashboard/Homepage";
+import { pink } from "@material-ui/core/colors";
+
+const NoteService = require('../src/components/services/note-service');
 
 let namE = "";
 
@@ -50,7 +53,8 @@ class App extends Component {
     this.state = {
 
       name: "",
-
+      notes: [],
+      selectedNote:null,
       sidebarOpen: false
 
     };
@@ -59,6 +63,7 @@ class App extends Component {
 
   }
   componentDidMount() {
+    
     if (localStorage.jwtToken) {
       // Set auth token header auth
       const token = localStorage.jwtToken;
@@ -75,11 +80,28 @@ class App extends Component {
         // Logout user
         store.dispatch(logoutUser());
       }
+
+      this.listNotes();
+
+
         // // Redirect to login
         // window.location.href = "./login";
       
     
   }}
+
+  listNotes() {
+    NoteService
+      .listNotes()
+      .then(notes => {
+        this.setState({ notes });
+        return;
+      })
+      .catch(error => {
+        console.log(error);
+        return;
+      });
+  }
 
   shouldComponentUpdate() {
     if (localStorage.jwtToken) {
@@ -175,15 +197,28 @@ class App extends Component {
       </div>
     );
   }
+
+  
   test = ({ match, location }) => {
     // alert("hi");
     // const { name } = props.name
+    NoteService
+      .findNotesByTitle(match.params.name)
+      .then(note => {
+        this.setState({ selectedNote: note });
+        this.setState({ isEditNoteModalOpen: true });
+        return;
+      })
+      .catch(error => {
+        console.log(error);
+        return;
+      });
     return (
       <>
         <p>
           <strong>Match Props: </strong>
           <code>{JSON.stringify(match, null, 2)}</code>
-          <p>{match.params.name}</p>
+          <p>{JSON.stringify(this.state.selectedNote, null, 2)}</p>
         </p>
         <p>
           <strong>Location Props: </strong>
