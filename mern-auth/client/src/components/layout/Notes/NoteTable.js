@@ -20,10 +20,10 @@ const NoteTable = (props) => {
                         </a>
                     </div>
                 </td>
-                <td className="align-middle"><a href="#">{note.title}</a></td>
+                <td className="align-middle"><a href={'/patient/'+note.title}>{note.title}</a></td>
 
                 {note.title === 'Eric Robinsinstinson' ? (
-                    <td className="align-middle text-success">
+                    <td className="align-middle text-center text-danger">
                         <span className="d-inline-block text-truncate" style={{ maxWidth: '200px' }}>
                             <p className="align-middle text-danger">{note.content}</p>
                         </span>
@@ -31,7 +31,7 @@ const NoteTable = (props) => {
                 ) : null}
 
                 {note.title !== 'Eric Robinsinstinson' ? (
-                    <td className="align-middle text-success">
+                    <td className="align-middle text-center">
                         <span className="d-inline-block text-truncate" style={{ maxWidth: '200px' }}>
                             <p className="align-middle text-success">{note.content}</p>
                         </span>
@@ -42,7 +42,7 @@ const NoteTable = (props) => {
                     <a href="#" className="align-middle text-success">{note.content}</a>
                     </span>                
                 </td> */}
-                <td className="align-middle">{`${new Date(note.updatedDate).toISOString().slice(0, 10)} ${new Date(note.updatedDate).toISOString().slice(11, 16)}`}</td>
+                <td className="align-middle text-center">{`${new Date(note.updatedDate).toISOString().slice(0, 10)} ${new Date(note.updatedDate).toISOString().slice(11, 16)}`}</td>
             </tr>
         );
     });
@@ -66,8 +66,8 @@ const NoteTable = (props) => {
 
             </div>
 
-            <table className="table table-bordered table-striped table-hover">
-                <thead>
+            <table className="table table-bordered" >
+                <thead class="thead-dark">
                     <tr>
                         <th></th>
                         <th className="align-middle text-center">Name</th>

@@ -81,6 +81,48 @@ class App extends Component {
     
   }}
 
+  shouldComponentUpdate() {
+    if (localStorage.jwtToken) {
+      // Set auth token header auth
+      const token = localStorage.jwtToken;
+      setAuthToken(token);
+      // Decode token and get user info and exp
+      const decoded = jwt_decode(token);
+      if (decoded.name !== namE) {
+        namE = decoded.name
+      }
+      // Set user and isAuthenticated
+      // store.dispatch(setCurrentUser(decoded));
+
+      // Check for expired token
+      const currentTime = Date.now() / 1000; // to get in milliseconds
+      if (decoded.exp < currentTime) {
+        // Logout user
+        store.dispatch(logoutUser());
+      }
+      return true
+  }}
+  // UNSAFE_componentWillUpdate() {
+  //   if (localStorage.jwtToken) {
+  //     // Set auth token header auth
+  //     const token = localStorage.jwtToken;
+  //     setAuthToken(token);
+  //     // Decode token and get user info and exp
+  //     const decoded = jwt_decode(token);
+  //     this.setState({ name: decoded.namE });
+  //     // Set user and isAuthenticated
+  //     // store.dispatch(setCurrentUser(decoded));
+
+  //     // Check for expired token
+  //     const currentTime = Date.now() / 1000; // to get in milliseconds
+  //     if (decoded.exp < currentTime) {
+  //       // Logout user
+  //       store.dispatch(logoutUser());
+  //     }
+  //     return true
+  //   }
+  // }
+
   handleLogOut() {
     store.dispatch(logoutUser());
     namE = ""
@@ -133,6 +175,23 @@ class App extends Component {
       </div>
     );
   }
+  test = ({ match, location }) => {
+    // alert("hi");
+    // const { name } = props.name
+    return (
+      <>
+        <p>
+          <strong>Match Props: </strong>
+          <code>{JSON.stringify(match, null, 2)}</code>
+          <p>{match.params.name}</p>
+        </p>
+        <p>
+          <strong>Location Props: </strong>
+          <code>{JSON.stringify(location, null, 2)}</code>
+        </p>
+      </>
+    );
+  }
 
 
   render() {
@@ -141,6 +200,7 @@ class App extends Component {
     const templates = this.templates.bind(this);
     const account = this.account.bind(this);
     const patient = this.patient.bind(this);
+    const test = this.test.bind(this);
 
     return (
       <Provider store={store}>
@@ -168,6 +228,11 @@ class App extends Component {
 
                 path="/patients"
                 component={patient}
+              />
+              <PrivateRoute
+
+                path="/patient/:name"
+                component={test}
               />
             </Switch>
           </div>
