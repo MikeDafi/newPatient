@@ -62,7 +62,7 @@ const NoteTable = (props) => {
                     </div>
                 </div>
 
-                <p className="h6" style={{ margin: '10px' }}><small><b>93823</b>  Patients</small></p>
+                <p className="h6" style={{ margin: '10px' }}><small><b>{notes.length}</b>  Patients</small></p>
 
             </div>
 

@@ -20,6 +20,8 @@ import "./App.css";
 import TemplateManager from "./components/layout/Templates/TemplateManager";
 import Homepage from "./components/dashboard/Homepage";
 import { pink } from "@material-ui/core/colors";
+import { Card, CardHeader} from '@material-ui/core';
+import { CardContent } from "@material-ui/core";
 
 const NoteService = require('../src/components/services/note-service');
 
@@ -215,15 +217,25 @@ class App extends Component {
       });
     return (
       <>
-        <p>
-          <strong>Match Props: </strong>
-          <code>{JSON.stringify(match, null, 2)}</code>
-          <p>{JSON.stringify(this.state.selectedNote, null, 2)}</p>
-        </p>
-        <p>
-          <strong>Location Props: </strong>
-          <code>{JSON.stringify(location, null, 2)}</code>
-        </p>
+      <Card>
+        <CardHeader>
+        Hi
+      </CardHeader>
+        <CardContent>
+              <b>From URL:</b><br></br>
+              <strong>Match Props: </strong>
+              <code>{JSON.stringify(match, null, 2)}</code>
+        </CardContent>
+      </Card>
+        <Card style={{boxShadow:'None'}}>
+          <CardContent>
+            <br></br><b>From MONGODB:</b><br></br>
+            <p>{JSON.stringify(this.state.selectedNote, null, 2)}</p>
+            {/* {this.state.selectedNote.JSON.na} */}
+            <strong>Location Props: </strong>
+            <code>{JSON.stringify(location, null, 2)}</code>
+          </CardContent>
+        </Card>
       </>
     );
   }

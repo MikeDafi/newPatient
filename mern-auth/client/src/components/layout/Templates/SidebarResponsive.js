@@ -85,7 +85,7 @@ class ResponsiveDrawer extends React.Component {
 
         <Sidebar
           shadow={false}
-          styles={{ sidebar: { background: 'rgb(52, 58, 68)' } }}
+          styles={{ sidebar: { background: 'rgb(52, 58, 68)', position:'absolute', width:'201px' } }}
           sidebar={
             <div>
               {/* hiiii
