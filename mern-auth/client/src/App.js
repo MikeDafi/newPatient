@@ -20,8 +20,9 @@ import "./App.css";
 import TemplateManager from "./components/layout/Templates/TemplateManager";
 import Homepage from "./components/dashboard/Homepage";
 import { pink } from "@material-ui/core/colors";
-import { Card, CardHeader} from '@material-ui/core';
+import { Card, CardHeader } from '@material-ui/core';
 import { CardContent } from "@material-ui/core";
+import PdfInterface from './components/layout/FormEditor/PdfInterface';
 
 const NoteService = require('../src/components/services/note-service');
 
@@ -56,7 +57,7 @@ class App extends Component {
 
       name: "",
       notes: [],
-      selectedNote:null,
+      selectedNote: null,
       sidebarOpen: false
 
     };
@@ -65,7 +66,7 @@ class App extends Component {
 
   }
   componentDidMount() {
-    
+
     if (localStorage.jwtToken) {
       // Set auth token header auth
       const token = localStorage.jwtToken;
@@ -86,11 +87,12 @@ class App extends Component {
       this.listNotes();
 
 
-        // // Redirect to login
-        // window.location.href = "./login";
-      
-    
-  }}
+      // // Redirect to login
+      // window.location.href = "./login";
+
+
+    }
+  }
 
   listNotes() {
     NoteService
@@ -125,7 +127,8 @@ class App extends Component {
         store.dispatch(logoutUser());
       }
       return true
-  }}
+    }
+  }
   // UNSAFE_componentWillUpdate() {
   //   if (localStorage.jwtToken) {
   //     // Set auth token header auth
@@ -150,7 +153,16 @@ class App extends Component {
   handleLogOut() {
     store.dispatch(logoutUser());
     namE = ""
-    this.setState({name:""})
+    this.setState({ name: "" })
+  }
+
+
+  PdfPage() {
+    return (
+      <div >
+        <PdfInterface />
+      </div>
+    );
   }
 
   templates() {
@@ -168,7 +180,7 @@ class App extends Component {
           page="patients"
           userName={this.state.name}
         />
-        <Dashboard/>
+        <Dashboard />
       </div>
     );
   }
@@ -178,7 +190,7 @@ class App extends Component {
       <Homepage
         name={this.state.name}
         logoutUser={this.handleLogOut.bind(this)}
-        />
+      />
     );
   }
 
@@ -200,7 +212,7 @@ class App extends Component {
     );
   }
 
-  
+
   test = ({ match, location }) => {
     // alert("hi");
     // const { name } = props.name
@@ -217,17 +229,17 @@ class App extends Component {
       });
     return (
       <>
-      <Card>
-        <CardHeader>
-        Hi
+        <Card>
+          <CardHeader>
+            Hi
       </CardHeader>
-        <CardContent>
-              <b>From URL:</b><br></br>
-              <strong>Match Props: </strong>
-              <code>{JSON.stringify(match, null, 2)}</code>
-        </CardContent>
-      </Card>
-        <Card style={{boxShadow:'None'}}>
+          <CardContent>
+            <b>From URL:</b><br></br>
+            <strong>Match Props: </strong>
+            <code>{JSON.stringify(match, null, 2)}</code>
+          </CardContent>
+        </Card>
+        <Card style={{ boxShadow: 'None' }}>
           <CardContent>
             <br></br><b>From MONGODB:</b><br></br>
             <p>{JSON.stringify(this.state.selectedNote, null, 2)}</p>
@@ -248,6 +260,7 @@ class App extends Component {
     const account = this.account.bind(this);
     const patient = this.patient.bind(this);
     const test = this.test.bind(this);
+    const PdfPage = this.PdfPage.bind(this);
 
     return (
       <Provider store={store}>
@@ -275,6 +288,11 @@ class App extends Component {
 
                 path="/patients"
                 component={patient}
+              />
+              <PrivateRoute
+
+                path="/pdf"
+                component={PdfPage}
               />
               <PrivateRoute
 
