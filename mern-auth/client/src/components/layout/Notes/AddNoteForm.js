@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import uuidv1 from 'uuid/v1';
+import UploadForm from '../FormEditor/UploadForms';
+import { Dropdown } from 'semantic-ui-react'
 
 
 class AddNoteForm extends Component {
@@ -12,15 +14,50 @@ class AddNoteForm extends Component {
             title: '',
             content: '',
             tags: [],
-            validationErrors: []
+            validationErrors: [],
+            forms: [],
+            removingForms: [],
+            selectedValues :[],
         };
 
         this.onTitleChange = this.onTitleChange.bind(this);
         this.onContentChange = this.onContentChange.bind(this);
         this.onTagsChange = this.onTagsChange.bind(this);
         this.onSave = this.onSave.bind(this);
+        this.onFormChange = this.onFormChange.bind(this);
+        this.onRemoveFormDropDownChange = this.onRemoveFormDropDownChange.bind(this);
+        this.onRemoveFormDropDownSubmit = this.onRemoveFormDropDownSubmit.bind(this);
     }
 
+    onRemoveFormDropDownChange(event, data) {
+
+        const {value} = data;
+
+        var alteredForms = Array.from(this.state.forms);
+
+        for (let i = 0; i < value.length; i++) {
+            alteredForms.splice(value[i],1);
+        }
+
+        this.setState({
+            selectedValues : value,
+            removingForms : alteredForms
+        })
+    }
+
+    onRemoveFormDropDownSubmit() {
+        this.setState({
+            forms: this.state.removingForms,
+            selectedValues : []
+        })
+        
+    }
+
+    onFormChange = files => {
+        this.setState({
+            forms: Object.values(files)
+        })
+    }
 
     onTitleChange(event) {
         const title = event.target.value.trim();
@@ -133,6 +170,7 @@ class AddNoteForm extends Component {
 
     render() {
 
+
         const validationErrorSummary = this.state.validationErrors.map(error =>
             <div key={uuidv1()} className="alert alert-danger alert-dismissible fade show">
                 {error.message}
@@ -141,6 +179,12 @@ class AddNoteForm extends Component {
                 </button>
             </div>
         );
+
+        const stateOptions = this.state.forms.map((value, index) => ({
+            key: index,
+            text: value.name,
+            value : index
+        }))
 
         return (
             <div className="card card-body">
@@ -171,6 +215,29 @@ class AddNoteForm extends Component {
                     <div className="form-group">
                         <label htmlFor="example-email-input" >Email</label>
                         <input className="form-control" type="email" value="bootstrap@example.com" id="example-email-input" />
+                    </div>
+
+                    <div >
+                        <label >Upload Forms</label>
+                        <UploadForm onChange={(e) => this.onFormChange(e.target.files)} />
+                        <label>Forms Uploaded</label>
+                        <Dropdown
+                            placeholder={this.state.forms.length > 0 ? "Remove from " + this.state.forms.length + " files": "No Files"}
+                            fluid
+                            multiple
+                            search
+                            selection
+                            options={stateOptions}
+                            value={this.state.selectedValues}
+                            onChange={this.onRemoveFormDropDownChange}
+                        >
+                        </Dropdown>
+                        <button className="btn btn-warning btn-sm btn-block mt-2 mt-sm-0"
+                            onClick={this.onRemoveFormDropDownSubmit}
+                            type="button">
+                            <i className="fa fa-remove mr-2"></i>Remove Selected
+                        </button>
+
                     </div>
 
                     <div className="form-group">

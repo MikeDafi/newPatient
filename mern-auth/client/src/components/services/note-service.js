@@ -15,14 +15,14 @@ const baseApiUrl = 'http://localhost:5000/api';
 
 // add note
 
-export const addNote = (title, content, tags = []) => {
-
+export const addNote = (title, content, tags = [], forms) => {
     return new Promise((resolve, reject) => {
         axios
             .post(`${baseApiUrl}/notes`, {
                 'title': title,
                 'content': content,
-                'tags': tags.join()
+                'tags': tags.join(),
+                'forms' : "MICHAEL ASKNDAFI"
             })
             .then((result) => {
                 resolve(result.data);

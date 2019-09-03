@@ -13,15 +13,22 @@ class EditNoteForm extends Component {
             title: props.note.title,
             content: props.note.content,
             tags: props.note.tags,
-            validationErrors: []
+            validationErrors: [],
+            forms : props.note.forms,
         };
 
         this.onTitleChange = this.onTitleChange.bind(this);
         this.onContentChange = this.onContentChange.bind(this);
         this.onTagsChange = this.onTagsChange.bind(this);
         this.onSave = this.onSave.bind(this);
+        this.onFormChange = this.onFormChange.bind(this);
     }
 
+    onFormChange(event){
+
+        const moreforms = event.target.files;
+
+    }
 
     onTitleChange(event) {
         const title = event.target.value;
@@ -49,6 +56,14 @@ class EditNoteForm extends Component {
         }
     }
 
+    onFormChange = event => {
+
+        const editedForms = event.target.files;
+
+        this.setState({
+            forms: editedForms
+        })
+    }
 
     onSave(event) {
         event.preventDefault();
@@ -61,7 +76,8 @@ class EditNoteForm extends Component {
                     id: this.state.id,
                     title: this.state.title,
                     content: this.state.content,
-                    tags: this.state.tags
+                    tags: this.state.tags,
+                    forms : this.state.forms
                 });
             }
         }

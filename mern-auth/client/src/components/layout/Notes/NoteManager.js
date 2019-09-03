@@ -108,8 +108,9 @@ class NoteManager extends Component {
 
         this.setState({ isAddNoteModalOpen: false });
 
-        const { title, content, tags } = note;
-
+        const { title, content, tags, forms } = note;
+        console.log("forms below")
+        console.log(forms)
         if (!title || title.length === 0) {
             throw Error('Title is required');
         }
@@ -123,7 +124,7 @@ class NoteManager extends Component {
         }
 
         NoteService
-            .addNote(title, content, tags)
+            .addNote(title, content, tags, forms)
             .then(newNote => {
                 NoteService
                     .listNotes()
@@ -177,7 +178,7 @@ class NoteManager extends Component {
     handleOnEditNote(note) {
         this.setState({ isEditNoteModalOpen: false });
 
-        const { title, content, tags } = note;
+        const { title, content, tags, } = note;
 
         if (!title || title.length === 0) {
             throw Error('Title is required');
@@ -229,10 +230,11 @@ class NoteManager extends Component {
                     <EditNoteForm onSaveNote={this.handleOnEditNote} onCloseModal={this.handleOnCloseEditNoteModal} note={this.state.selectedNote} />
                 </Modal>
 
-
+                {this.state.isAddNoteModalOpen == true || this.state.isEditNoteModalOpen == true ? null : 
                 <div className="mb-3">
                     <ControlPanel openAddNoteModal={this.handleOpenAddNoteModal} onFindNotes={this.handleOnFindNotes} />
                 </div>
+                }
 
 
                 {/* <nav aria-label="breadcrumb">

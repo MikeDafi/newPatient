@@ -15,7 +15,7 @@ class PdfInterface extends React.Component {
 
     onChangeHandler = event => {
         this.setState({
-            selectedFile: event.target.files[0],
+            selectedFile: event.target.files,
             loaded: 0,
         })
     }
